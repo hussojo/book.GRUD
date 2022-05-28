@@ -1,4 +1,4 @@
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from . import models
 
 class BookListView(ListView):
@@ -13,6 +13,11 @@ class BookCreateView(CreateView):
     success_url = "/book/"
 
 class BookUpdateView(UpdateView):
+    model = models.Book
+    fields ='__all__'
+    success_url = "/book/"
+
+class BookDeleteView(DeleteView):
     model = models.Book
     fields ='__all__'
     success_url = "/book/"
